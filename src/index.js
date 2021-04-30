@@ -64,25 +64,3 @@ app.post('/user-form', upload.single('images'),async(req,res)=>{
 })
 
 app.listen(port,() => console.log(`Listening on port ${port}`));
-
-
-
-
-
-
-// const storage = multer.diskStorage({
-//     destination:'./public/upload',
-//     filename:function(req,file,cb ){
-//         cb(null,file.fieldname+"-"+Date.now()+path.extname(file.originalname))        
-//     }
-// })
-
-// const upload = multer({
-//     storage:storage,
-//     fileFilter:function(req,file,cb){
-//         if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)){
-//             return cb("Please check the content type");
-//         }
-//         cb(undefined,true)
-//     }
-// }).single('images')
