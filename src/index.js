@@ -47,7 +47,7 @@ app.post('/user-form', upload.single('images'),async(req,res)=>{
     try{
         var user = new User(req.body);
         user.ValidateAge();
-        
+        await sendWelcomeEmail(user.email,user.name);
         var image = req.file;
         console.log(image)
         user.images = image
