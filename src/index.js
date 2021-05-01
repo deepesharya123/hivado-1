@@ -54,8 +54,8 @@ app.post('/user-form', upload.single('images'),async(req,res)=>{
         await user.save();
 
         const allUser = await User.find({}); 
-        res.send(allUser)
-        // res.render('allUSer',{showUser:allUser});
+        // res.send(allUser)
+        res.render('allUSer',{showUser:allUser});
 
     }catch(e){
         // res.send(e)
