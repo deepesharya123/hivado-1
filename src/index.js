@@ -47,14 +47,14 @@ app.post('/user-form', upload.single('images'),async(req,res)=>{
     try{
         var user = new User(req.body);
         user.ValidateAge();
-        // await sendWelcomeEmail(user.email,user.name);
+        await sendWelcomeEmail(user.email,user.name);
         var image = req.file;
         console.log(image)
         user.images = image
         await user.save();
 
         const showUser = await User.find({}); 
-        // res.send(allUser)
+        
         res.render('allUser',{showUser});
 
     }catch(e){
